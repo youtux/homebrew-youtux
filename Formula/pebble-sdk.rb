@@ -1,8 +1,8 @@
 class PebbleSdk < Formula
   homepage "https://developer.getpebble.com/"
-  url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp1.tar.gz"
-  version "3.0-dp1"
-  sha1 "d59b8089d8a9410a32c03f59d5feee1ab6965b24"
+  url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp2.tar.gz"
+  version "3.0-dp2"
+  sha256 "365719bd0a56b2c465441a14b5a24f8274c09d82915b54b440429466235a1cb7"
 
   bottle do
     revision 1
