@@ -19,6 +19,10 @@ class PebbleSdk < Formula
   depends_on "libelf" => :build
   depends_on "texinfo" => :build
 
+  depends_on "boost-python"
+  depends_on "glib"
+  depends_on "pixman"
+
   # List of resources can be obtained from requirements.txt
   resource "autobahn" do
     url "https://pypi.python.org/packages/source/a/autobahn/autobahn-0.5.14.zip"
