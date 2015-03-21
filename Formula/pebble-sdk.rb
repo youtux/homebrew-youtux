@@ -1,8 +1,8 @@
 class PebbleSdk < Formula
   homepage "https://developer.getpebble.com/"
-  url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp3.tar.gz"
-  version "3.0-dp3"
-  sha256 "3794e6aa573851151598a39c674c53a35c814c7ffa862b1a1efdfb0aa770990e"
+  url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp4.tar.gz"
+  version "3.0-dp4"
+  sha256 "4d716beabccf3e29d5ae80e5def4becea78befe41843bab3d95b24a32d828711"
 
   depends_on :macos => :mountain_lion
   depends_on "freetype" => :recommended
@@ -47,6 +47,31 @@ class PebbleSdk < Formula
     sha1 "97f18d651595bd30243ad2f4702764791e57fa6e"
   end
 
+  resource "httplib2" do
+    url "https://pypi.python.org/packages/source/h/httplib2/httplib2-0.9.tar.gz"
+    sha1 "1b9774a81136a222f02e711d81efb775dc87b70e"
+  end
+
+  resource "oauth2client" do
+    url "https://pypi.python.org/packages/source/o/oauth2client/oauth2client-1.3.tar.gz"
+    sha1 "02c69758754be96c902225f3e55965cd5a392064"
+  end
+
+  resource "peewee" do
+    url "https://pypi.python.org/packages/source/p/peewee/peewee-2.4.7.tar.gz"
+    sha1 "7803726847e109a3f56b456a092b04937ef3b6d2"
+  end
+
+  resource "pyasn1" do
+    url "https://pypi.python.org/packages/source/p/pyasn1/pyasn1-0.1.7.tar.gz"
+    sha1 "e32b91c5a5d9609fb1d07d8685a884bab22ca6d0"
+  end
+
+  resource "pyasn1-modules" do
+    url "https://pypi.python.org/packages/source/p/pyasn1-modules/pyasn1-modules-0.0.5.tar.gz"
+    sha1 "108bdef1b3ca7050ff93c59e7ef7225c9c1a8b07"
+  end
+
   resource "pygeoip" do
     url "https://pypi.python.org/packages/source/p/pygeoip/pygeoip-0.3.2.tar.gz"
     sha1 "608365dc820b54ac44d368e6e33766444e0a5098"
@@ -62,9 +87,19 @@ class PebbleSdk < Formula
     sha1 "f15694b1bea9e4369c1931dc5cf09e37e5c562cf"
   end
 
+  resource "python-dateutil" do
+    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.1.tar.gz"
+    sha1 "c7711cc60222df1cbe20231082017b07f2ce9db9"
+  end
+
   resource "requests" do
     url "https://pypi.python.org/packages/source/r/requests/requests-2.5.0.tar.gz"
     sha1 "d60dfaaa0b4b62a6646fcb6c3954ea369317ca9f"
+  end
+
+  resource "rsa" do
+    url "https://pypi.python.org/packages/source/r/rsa/rsa-3.1.4.tar.gz"
+    sha1 "208583c49489b7ab415a4455eae7618b7055feca"
   end
 
   resource "sh" do
@@ -87,28 +122,31 @@ class PebbleSdk < Formula
     sha1 "f6d42683cf58b3a40b47ff0c78afca980df05abd"
   end
 
+  resource "wsgiref" do
+    url "https://pypi.python.org/packages/source/w/wsgiref/wsgiref-0.1.2.zip"
+    sha1 "80b7e9b039e40a2f8419e00b393a6516d80cf8de"
+  end
+
   resource "zope.interface" do
     url "https://pypi.python.org/packages/source/z/zope.interface/zope.interface-4.1.2.tar.gz"
     sha1 "6d940ecd621df0437ee9deb17d03ba105c13f07f"
   end
 
   resource "pebble-arm-toolchain" do
-    url "https://github.com/pebble/arm-eabi-toolchain/archive/v2.0.tar.gz"
-    sha1 "7085c6ef371213e3e766a1cbd7e6e1951ccf1d87"
+    url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk/arm-cs-tools-macos-universal-static.tar.gz"
+    sha1 "b1baaf455140d3c6e3a889217bb83986fe6527a0"
   end
 
   def install
     %w[zope.interface Twisted autobahn backports.ssl_match_hostname freetype-py
-       greenlet gevent gevent-websocket pygeoip pypng pyserial requests sh six
-       websocket-client].each do |r|
+       greenlet gevent gevent-websocket httplib2 oauth2client peewee pyasn1 pyasn1-modules
+       pygeoip pypng pyserial python-dateutil requests rsa sh six websocket-client wsgiref].each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args(libexec/".env")
       end
     end
 
-    resource("pebble-arm-toolchain").stage do
-      system "make", "PREFIX=#{libexec}/arm-cs-tools", "install-cross"
-    end
+    resource("pebble-arm-toolchain").stage libexec/"arm-cs-tools"
 
     doc.install %w[Documentation Examples README.txt]
     libexec.install %w[Pebble tools bin requirements.txt version.txt]
