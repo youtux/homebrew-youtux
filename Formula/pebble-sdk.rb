@@ -1,8 +1,8 @@
 class PebbleSdk < Formula
   homepage "https://developer.getpebble.com/"
-  url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp4.tar.gz"
-  version "3.0-dp4"
-  sha256 "4d716beabccf3e29d5ae80e5def4becea78befe41843bab3d95b24a32d828711"
+  url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp5.tar.gz"
+  version "3.0-dp5"
+  sha256 "ad1a96674fd9c149db6adca21928294aa26e78cfcfb32296324bcc5b8bc74679"
 
   depends_on :macos => :mountain_lion
   depends_on "freetype" => :recommended
