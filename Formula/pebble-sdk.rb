@@ -88,8 +88,8 @@ class PebbleSdk < Formula
   end
 
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.1.tar.gz"
-    sha1 "c7711cc60222df1cbe20231082017b07f2ce9db9"
+    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.2.tar.gz"
+    sha1 "1d975f5db65306a61f4353ef00308ec806f47f54"
   end
 
   resource "requests" do
