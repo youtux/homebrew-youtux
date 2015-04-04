@@ -4,7 +4,6 @@ class PebbleSdk < Formula
   version "3.0-dp6"
   sha256 "4db2a24a90121b58f48a12a0aea6d04b900dd07ab1666f82cc9928935f2d7911"
 
-  depends_on :macos => :mountain_lion
   depends_on "freetype" => :recommended
   depends_on "mpfr" => :build
   depends_on "gmp" => :build
