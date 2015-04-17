@@ -18,122 +18,122 @@ class PebbleSdk < Formula
   # List of resources can be obtained from requirements.txt
   resource "autobahn" do
     url "https://pypi.python.org/packages/source/a/autobahn/autobahn-0.5.14.zip"
-    sha1 "475ba5f281bdcc50858c6920c034a1a067b2ce2a"
+    sha256 "d56979d4dffae6dc4d9c840629b9a8092ac41ea75f55052d70943edf7e01979d"
   end
 
   resource "backports.ssl_match_hostname" do
     url "https://pypi.python.org/packages/source/b/backports.ssl_match_hostname/backports.ssl_match_hostname-3.4.0.2.tar.gz"
-    sha1 "da4e41f3b110279d2382df47ac1e4f10c63cf954"
+    sha256 "07410e7fb09aab7bdaf5e618de66c3dac84e2e3d628352814dc4c37de321d6ae"
   end
 
   resource "freetype-py" do
     url "https://pypi.python.org/packages/source/f/freetype-py/freetype-py-1.0.tar.gz"
-    sha1 "3830e45ff9e9a96f1e209d786cbd5492f168127a"
+    sha256 "1fc67817d5fb9f1329a1a431850a46f01f250a1d6380e4bcecdb54266023e99a"
   end
 
   resource "gevent" do
     url "https://pypi.python.org/packages/source/g/gevent/gevent-1.0.1.tar.gz"
-    sha1 "2cc1b6e1fa29b30ea881fa6a195e57faaf089ae8"
+    sha256 "4627e215d058f71d95e6b26d9e7be4c263788a4756bd2858a93775f6c072df43"
   end
 
   resource "gevent-websocket" do
     url "https://pypi.python.org/packages/source/g/gevent-websocket/gevent-websocket-0.9.3.tar.gz"
-    sha1 "06da7a53cb3844a4094ce9279cfd6f70bde12172"
+    sha256 "6475220340f9f8895a0f51bd2b9df3511bc7765dc055f49e997584bdaee3381f"
   end
 
   resource "greenlet" do
     url "https://pypi.python.org/packages/source/g/greenlet/greenlet-0.4.5.zip"
-    sha1 "97f18d651595bd30243ad2f4702764791e57fa6e"
+    sha256 "b990f00f120c4cfb6672eec2acd32210990a2c7b70b815c034d1d8cbf08e2dbe"
   end
 
   resource "httplib2" do
     url "https://pypi.python.org/packages/source/h/httplib2/httplib2-0.9.tar.gz"
-    sha1 "1b9774a81136a222f02e711d81efb775dc87b70e"
+    sha256 "39ea8c6a6d9f595c177a16134fc49a990ad8d382758cbf469c8659662f2f51ab"
   end
 
   resource "oauth2client" do
     url "https://pypi.python.org/packages/source/o/oauth2client/oauth2client-1.3.tar.gz"
-    sha1 "02c69758754be96c902225f3e55965cd5a392064"
+    sha256 "668ffe5a9a6df1f5fca50a851da9ce97286dc10f190b05e84763a8cd9716141b"
   end
 
   resource "peewee" do
     url "https://pypi.python.org/packages/source/p/peewee/peewee-2.4.7.tar.gz"
-    sha1 "7803726847e109a3f56b456a092b04937ef3b6d2"
+    sha256 "8ad1c4fb202332a969da83a0af712bca96ed6e2a70ca1523ab3d2a2234ed47bd"
   end
 
   resource "pyasn1" do
     url "https://pypi.python.org/packages/source/p/pyasn1/pyasn1-0.1.7.tar.gz"
-    sha1 "e32b91c5a5d9609fb1d07d8685a884bab22ca6d0"
+    sha256 "e4f81d53c533f6bd9526b047f047f7b101c24ab17339c1a7ad8f98b25c101eab"
   end
 
   resource "pyasn1-modules" do
     url "https://pypi.python.org/packages/source/p/pyasn1-modules/pyasn1-modules-0.0.5.tar.gz"
-    sha1 "108bdef1b3ca7050ff93c59e7ef7225c9c1a8b07"
+    sha256 "be65f00ed28e30756f1ef39377cb382480a2368699179d646a84d79fe9349941"
   end
 
   resource "pygeoip" do
     url "https://pypi.python.org/packages/source/p/pygeoip/pygeoip-0.3.2.tar.gz"
-    sha1 "608365dc820b54ac44d368e6e33766444e0a5098"
+    sha256 "f22c4e00ddf1213e0fae36dc60b46ee7c25a6339941ec1a975539014c1f9a96d"
   end
 
   resource "pypng" do
     url "https://pypi.python.org/packages/source/p/pypng/pypng-0.0.17.tar.gz"
-    sha1 "3821c58be15e833fc183dd361df02dece32ba180"
+    sha256 "2dfa74ac28a4c41ae61e62d243410548c7c174bd990528d30270324f15211544"
   end
 
   resource "pyserial" do
     url "https://pypi.python.org/packages/source/p/pyserial/pyserial-2.7.tar.gz"
-    sha1 "f15694b1bea9e4369c1931dc5cf09e37e5c562cf"
+    sha256 "3542ec0838793e61d6224e27ff05e8ce4ba5a5c5cc4ec5c6a3e8d49247985477"
   end
 
   resource "python-dateutil" do
     url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.1.tar.bz2"
-    sha1 "2a855dc48eac985fa68490a0a2f1849ef68156f1"
+    sha256 "a9f62b12e28f11c732ad8e255721a9c7ab905f9479759491bc1f1e91de548d0f"
   end
 
   resource "requests" do
     url "https://pypi.python.org/packages/source/r/requests/requests-2.5.0.tar.gz"
-    sha1 "d60dfaaa0b4b62a6646fcb6c3954ea369317ca9f"
+    sha256 "d2daef4919fc87262b8b3cb5a9d214cac8ce1e50950f8423bbc1d31c2e63d38e"
   end
 
   resource "rsa" do
     url "https://pypi.python.org/packages/source/r/rsa/rsa-3.1.4.tar.gz"
-    sha1 "208583c49489b7ab415a4455eae7618b7055feca"
+    sha256 "e2b0b05936c276b1edd2e1525553233b666df9e29b5c3ba223eed738277c82a0"
   end
 
   resource "sh" do
     url "https://pypi.python.org/packages/source/s/sh/sh-1.09.tar.gz"
-    sha1 "995c3cd38ddc065088f5fa991206665ec899e938"
+    sha256 "f3d174e2ad25c39f28935bae672be51aa083063d3122405ceeb2a3e7a8239d45"
   end
 
   resource "six" do
     url "https://pypi.python.org/packages/source/s/six/six-1.8.0.tar.gz"
-    sha1 "aa3b0659cbc85c6c7a91efc51f2d1007040070cd"
+    sha256 "047bbbba41bac37c444c75ddfdf0573dd6e2f1fbd824e6247bb26fa7d8fa3830"
   end
 
   resource "Twisted" do
     url "https://pypi.python.org/packages/source/T/Twisted/Twisted-12.0.0.tar.bz2"
-    sha1 "64b7f7fdeefbd4dd8e6bdffb12d9095106ee3d5d"
+    sha256 "e5561c9714583fd052ea9e0b10331609a719b3878f9d2593e4c57eab0ba0effd"
   end
 
   resource "websocket-client" do
     url "https://pypi.python.org/packages/source/w/websocket-client/websocket-client-0.22.0.tar.gz"
-    sha1 "f6d42683cf58b3a40b47ff0c78afca980df05abd"
+    sha256 "83a173ea32ef4209a1933b3e0f5bfafe533b909073ff8d657f044b5792b8c7b5"
   end
 
   resource "wsgiref" do
     url "https://pypi.python.org/packages/source/w/wsgiref/wsgiref-0.1.2.zip"
-    sha1 "80b7e9b039e40a2f8419e00b393a6516d80cf8de"
+    sha256 "c7e610c800957046c04c8014aab8cce8f0b9f0495c8cd349e57c1f7cabf40e79"
   end
 
   resource "zope.interface" do
     url "https://pypi.python.org/packages/source/z/zope.interface/zope.interface-4.1.2.tar.gz"
-    sha1 "6d940ecd621df0437ee9deb17d03ba105c13f07f"
+    sha256 "441fefcac1fbac57c55239452557d3598571ab82395198b2565a29d45d1232f6"
   end
 
   resource "pebble-arm-toolchain" do
     url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk/arm-cs-tools-macos-universal-static.tar.gz"
-    sha1 "b1baaf455140d3c6e3a889217bb83986fe6527a0"
+    sha256 "49a1ddaed13d44b928a7148fa344f9362d6ae6823496fb5077ea451230222c4b"
   end
 
   def install
