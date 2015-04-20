@@ -3,7 +3,7 @@ class PebbleSdk < Formula
   url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp8.tar.gz"
   version "3.0-dp8"
   sha256 "6d3644bec91f0f9af0adbdbee5ce595d1772e47d2b6e52b45cbc45ea75048cce"
-  revision 1
+  revision 2
 
   option "without-gevent-fix", "Don't use proposed gevent fix (https won't work)"
 
@@ -45,8 +45,8 @@ class PebbleSdk < Formula
   end
 
   resource "gevent-fix" do
-    url "https://github.com/NextThought/gevent/archive/b6bc1bf6f6c48376c3f6f875740205f7843c21f1.zip"
-    sha256 "56ef59fd8b5826ab43042f9d4dc8646b89e3a109515f0dee2ce331a0ed227d54"
+    url "https://github.com/NextThought/gevent/archive/3622c07d70ff5a70b3539d2d0b3046ec05dfdea0.zip"
+    sha256 "dac8a802ef183fe48b2353ec52094484e0bb490ce6ec11bd2302cf50ac66ed30"
   end
 
   resource "gevent-websocket" do
