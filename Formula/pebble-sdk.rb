@@ -3,6 +3,9 @@ class PebbleSdk < Formula
   url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp8.tar.gz"
   version "3.0-dp8"
   sha256 "6d3644bec91f0f9af0adbdbee5ce595d1772e47d2b6e52b45cbc45ea75048cce"
+  revision 1
+
+  option "without-gevent-fix", "Don't use proposed gevent fix (https won't work)"
 
   depends_on "freetype" => :recommended
   depends_on "mpfr" => :build
@@ -31,9 +34,19 @@ class PebbleSdk < Formula
     sha256 "1fc67817d5fb9f1329a1a431850a46f01f250a1d6380e4bcecdb54266023e99a"
   end
 
+  resource "cython" do
+    url "https://pypi.python.org/packages/source/C/Cython/cython-0.22.tar.gz"
+    sha256 "14307e7a69af9a0d0e0024d446af7e51cc0e3e4d0dfb10d36ba837e5e5844015"
+  end
+
   resource "gevent" do
     url "https://pypi.python.org/packages/source/g/gevent/gevent-1.0.1.tar.gz"
     sha256 "4627e215d058f71d95e6b26d9e7be4c263788a4756bd2858a93775f6c072df43"
+  end
+
+  resource "gevent-fix" do
+    url "https://github.com/NextThought/gevent/archive/b6bc1bf6f6c48376c3f6f875740205f7843c21f1.zip"
+    sha256 "56ef59fd8b5826ab43042f9d4dc8646b89e3a109515f0dee2ce331a0ed227d54"
   end
 
   resource "gevent-websocket" do
@@ -137,11 +150,30 @@ class PebbleSdk < Formula
   end
 
   def install
+    ENV.prepend_create_path "PYTHONPATH", libexec/".env/lib/python2.7/site-packages"
+
+    venv_args = Language::Python.setup_install_args(libexec/".env")
+
+    if build.with? "gevent-fix"
+      old_path = ENV["PATH"]
+
+      ENV.prepend_create_path "PATH", libexec/".env/bin"
+
+      resource("cython").stage { system "python", *venv_args }
+      resource("gevent-fix").stage { system "python", *venv_args }
+
+      ENV["PATH"] = old_path
+    else
+      resource("gevent").stage do
+        system "python", *venv_args
+      end
+    end
+
     %w[zope.interface Twisted autobahn backports.ssl_match_hostname freetype-py
-       greenlet gevent gevent-websocket httplib2 oauth2client peewee pyasn1 pyasn1-modules
+       greenlet gevent-websocket httplib2 oauth2client peewee pyasn1 pyasn1-modules
        pygeoip pypng pyserial python-dateutil requests rsa sh six websocket-client wsgiref].each do |r|
       resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/".env")
+        system "python", *venv_args
       end
     end
 
