@@ -1,9 +1,8 @@
 class PebbleSdk < Formula
   homepage "https://developer.getpebble.com/"
-  url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp8.tar.gz"
-  version "3.0-dp8"
-  sha256 "6d3644bec91f0f9af0adbdbee5ce595d1772e47d2b6e52b45cbc45ea75048cce"
-  revision 2
+  url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-dp9.tar.gz"
+  version "3.0-dp9"
+  sha256 "2338974ccf83256d29c61dcb9508cf35bac5e14fd8138f5c0cd5139010bcd411"
 
   option "without-gevent-fix", "Don't use proposed gevent fix (https won't work)"
 
