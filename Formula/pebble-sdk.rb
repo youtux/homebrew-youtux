@@ -1,7 +1,35 @@
 class PebbleSdk < Formula
+  class Version < ::Version
+    class AlphaToken < ::Version::AlphaToken
+      PATTERN = /(dp|a(?:lpha)?)[0-9]*/i
+
+      def <=>(other)
+        case other
+        when AlphaToken
+          rev <=> other.rev
+        when ::Version::BetaToken, ::Version::RCToken, ::Version::PatchToken
+          -1
+        else
+          super
+        end
+      end
+    end
+    def tokenize
+      version.scan(SCAN_PATTERN).map! do |token|
+        case token
+        when /\A#{AlphaToken::PATTERN}\z/o   then AlphaToken
+        when /\A#{BetaToken::PATTERN}\z/o    then BetaToken
+        when /\A#{RCToken::PATTERN}\z/o      then RCToken
+        when /\A#{PatchToken::PATTERN}\z/o   then PatchToken
+        when /\A#{NumericToken::PATTERN}\z/o then NumericToken
+        when /\A#{StringToken::PATTERN}\z/o  then StringToken
+        end.new(token)
+      end
+    end
+  end
   homepage "https://developer.getpebble.com/"
   url "http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk2/PebbleSDK-3.0-beta10.tar.gz"
-  version "3.0-beta10"
+  version PebbleSdk::Version.new("3.0-beta10")
   sha256 "d310a20b39f7243247803b1a48c489a59983cd20d4e421c1213693d2a9b39339"
 
   option "without-gevent-fix", "Don't use proposed gevent fix (https won't work)"
